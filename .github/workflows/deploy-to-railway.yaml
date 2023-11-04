@@ -3,7 +3,7 @@ name: Deploy to Railway
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   deploy:
@@ -11,6 +11,14 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14' # Puoi specificare la versione di Node.js che preferisci
+
+      - name: Install Railway CLI
+        run: npm install -g railway
 
       - name: Login to Railway
         run: railway login --token ${{ secrets.RAILWAY_TOKEN }}

@@ -9,4 +9,3 @@ streamlit~=1.27.2
 pydantic~=2.4.2
 duckduckgo-search
 langchain_experimental
-pyqt6

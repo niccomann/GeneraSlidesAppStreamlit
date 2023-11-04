@@ -18,10 +18,12 @@ jobs:
           node-version: '14' # Puoi specificare la versione di Node.js che preferisci
 
       - name: Install Railway CLI
-        run: npm install -g railway
+        run: npm install -g @railway/cli
 
       - name: Login to Railway
-        run: railway login --token ${{ secrets.RAILWAY_TOKEN }}
+        env:
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+        run: railway login
 
       - name: Deploy to Railway
         run: railway up

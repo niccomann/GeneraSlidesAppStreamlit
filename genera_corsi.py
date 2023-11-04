@@ -8,12 +8,13 @@ from langchain.vectorstores.faiss import FAISS
 import faiss
 from langchain_experimental.autonomous_agents import BabyAGI
 from langchain.llms import OpenAI
+os.environ["STREAMLIT_SERVER_ENABLE_CORS"] = "false"
+
 import streamlit as st
-from langchain.agents.agent import Agent
+
 
 
 def page_input_key():
-    st.write("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")
     st.title("Inserisci la tua chiave API")
 
     # Inizializza la lista delle API keys se non esiste già

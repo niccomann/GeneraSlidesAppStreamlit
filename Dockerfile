@@ -1,22 +1,21 @@
-# Usa un'immagine base di Python
-FROM python:3.9-slim
+FROM python:3.10-slim-bullseye
+ 
+ENV HOST=0.0.0.0
+ 
+ENV LISTEN_PORT 8080
+ 
+EXPOSE 8080
+ 
+RUN apt-get update && apt-get install -y git
+ 
+COPY ./requirements.txt /app/requirements.txt
+ 
+RUN pip install --no-cache-dir --upgrade -r /app/requirements.txt
+ 
+WORKDIR app/
+ 
+COPY ./ /app/
 
-RUN pip install --upgrade pip
-
-# Imposta una directory di lavoro
-WORKDIR /app
-
-# Copia il file requirements.txt nella directory di lavoro corrente (/app)
-COPY requirements.txt ./
-
-# Installa le dipendenze Python
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Copia il file genera_corsi.py nella directory di lavoro corrente (/app)
-COPY genera_corsi.py ./
-
-# Espone la porta 8501, la porta predefinita su cui Streamlit esegue l'applicazione
-EXPOSE 8501
-
-# Esegue l'applicazione Streamlit quando il container viene avviato
-CMD ["streamlit", "run", "genera_corsi.py"]
+COPY ./.streamlit /app/.streamlit
+ 
+CMD ["streamlit", "run", "demo_app/main.py", "--server.port", "8080"]

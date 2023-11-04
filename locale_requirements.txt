@@ -2,6 +2,8 @@ python-dotenv~=1.0.0
 langchain~=0.0.310
 faiss-cpu
 openai
+google-search-results
+wikipedia
 tiktoken
 streamlit~=1.27.2
 pydantic~=2.4.2

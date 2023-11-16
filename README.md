@@ -3,7 +3,7 @@
 # GeneraSlidesApp
 
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/langchain-ai/langchain)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/niccomann/GeneraSlidesApp)
 
 
 
